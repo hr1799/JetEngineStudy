@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-7zt$ccx9a--n***$qx$)upa)z%hhi*5jurcw4ed877a#zb^8@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'jet-engine-study.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'jet-engine-study.herokuapp.com', 'www.jet-engine-study.herokuapp.com']
 
 
 # Application definition
