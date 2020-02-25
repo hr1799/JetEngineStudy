@@ -1,0 +1,1 @@
+web: gunicorn JetEngineStudy.wsgi --log-file -

@@ -1,0 +1,5 @@
+Django==2.2.7
+django-clear-cache==0.3
+django-storages==1.8
+requests==2.22.0
+whitenoise==5.0.1
