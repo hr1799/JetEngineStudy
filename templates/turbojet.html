@@ -35,9 +35,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-lg-2">
                                 <div class="col-xl-12 col-md-12 mb-4 mt-4" style="margin-bottom: 15px !important;">
-                                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                                        <div class="sidebar-brand-text mx-3 text-center" style="font-weight: bold; color: rgb(41,25,115);">TURBOJET<br>Cycle Analysis<br>Parametric Study</div>
-                                    </a>
+                                    <div class="sidebar-brand-text mx-3 text-center" style="font-weight: bold; color: rgb(41,25,115);">TURBOJET<br>Cycle Analysis<br>Parametric Study</div>
                                 </div>
                                 <hr class="sidebar-divider my-0">
                                 <form id="plotform" method="POST" enctype="multipart/form-data">
@@ -54,15 +52,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group row nav-item">
-                                        <label for="Tt4_Ta" class="col-sm-7 nav-link iboxl">T<sub>t4</sub>/T<sub>a</sub></label>
+                                        <label for="delH_CpTa" class="col-sm-7 nav-link iboxl">&Delta;H/C<sub>p</sub>T<sub>a</sub></label>
                                         <div class="col-sm-4 ibox">
-                                            <input type="text" class="form-control" id="Tt4_Ta" name="Tt4_Ta" value="6">
+                                            <input type="text" class="form-control" id="delH_CpTa" name="delH_CpTa" value="150">
                                         </div>
                                     </div>
                                     <div class="form-group row nav-item">
-                                        <label for="alpha" class="col-sm-7 nav-link iboxl">&alpha;</label>
+                                        <label for="Tt4_Ta" class="col-sm-7 nav-link iboxl">T<sub>t4</sub>/T<sub>a</sub></label>
                                         <div class="col-sm-4 ibox">
-                                            <input type="text" class="form-control" id="alpha" name="alpha" value="4">
+                                            <input type="text" class="form-control" id="Tt4_Ta" name="Tt4_Ta" value="6">
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 mb-4 mt-4" style="margin-bottom: 20px !important; margin-top: 20px !important">
@@ -72,20 +70,17 @@
                                     </div>
                                     <div class="form-group row nav-item">
                                         <div class="col-sm-3 ibox">
-                                            <input type="text" class="form-control" id="pi_f_min" name="pi_f_min" value="1">
-                                        </div>
-                                        <label class="col-sm-5 nav-link iboxl" style="text-align: center">  &le; &nbsp;&nbsp;&nbsp; &pi;<sub>f</sub> &nbsp;&nbsp;&nbsp; &le;</label>
-                                        <div class="col-sm-3 ibox">
-                                            <input type="text" class="form-control" id="pi_f_max" name="pi_f_max" value="4">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row nav-item">
-                                        <div class="col-sm-3 ibox">
-                                            <input type="text" class="form-control" id="pi_c_min" name="pi_c_min" value="0">
+                                            <input type="text" class="form-control" id="pi_c_min" name="pi_c_min" value="5">
                                         </div>
                                         <label class="col-sm-5 nav-link iboxl" style="text-align: center">  &le; &nbsp;&nbsp;&nbsp; &pi;<sub>c</sub> &nbsp;&nbsp;&nbsp; &le;</label>
                                         <div class="col-sm-3 ibox">
-                                            <input type="text" class="form-control" id="pi_c_max" name="pi_c_max" value="30">
+                                            <input type="text" class="form-control" id="pi_c_max" name="pi_c_max" value="25">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row nav-item">
+                                        <label for="steps" class="col-sm-7 nav-link iboxl">Steps</label>
+                                        <div class="col-sm-4 ibox">
+                                            <input type="text" class="form-control" id="steps" name="steps" step="0.1" value="2.5">
                                         </div>
                                     </div>
                                     <div class="form-group row nav-item" style="margin-top: 15px;">
@@ -94,6 +89,11 @@
                                         </div>
                                     </div>
                                 </form>
+                                <div class="form-group row nav-item" style="margin-top: 100px;">
+                                    <div class="col-sm-11 iboxl text-center">
+                                        <a href="{%  url 'turbofan' %}"><button class="btn btn-primary">Go to Turbofan</button></a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
                                 <div class="card shadow mb-4 mt-4 plots">
@@ -119,21 +119,46 @@
 
             function plotter(data) {
                 
-                var data1 = [{
+                var data_f = [{
                     x: data.x,
                     y: data.f,
-                    type: 'scatter'
+                    type: 'scatter',
+                    line: {
+                        color: 'rgb(219, 64, 82)',
+                    }
                     }];
 
-                Plotly.newPlot('force', data1);
+                var layout_f = {
+                    title: 'Plot of Force v/s πc',
+                    xaxis: {
+                          title: 'πc'
+                    },
+                    yaxis: {
+                        title: 'F/ma'
+                    },
+                    height: 400,
+                };
 
-                var data2 = [{
+                Plotly.newPlot('force', data_f, layout_f);
+
+                var data_t = [{
                     x: data.x,
                     y: data.t,
                     type: 'scatter'
                     }];
 
-                Plotly.newPlot('tsfc', data2);
+                var layout_t = {
+                    title: 'Plot of TSFC v/s πc',
+                    xaxis: {
+                        title: 'πc'
+                    },
+                    yaxis: {
+                        title: 'TSFCa'
+                    },
+                    height: 400
+                };
+
+                Plotly.newPlot('tsfc', data_t, layout_t);
 
             }
 

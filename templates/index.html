@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Jet Engine Study</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
+
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <style>
+            #wrapper {
+                min-height: 100vh;
+            }
+            .plots {
+                text-align: center;
+            }
+            .cc {
+                padding: 30px;
+            }
+            .col-xl-4 {
+                margin-top: 25vh;
+            }
+        </style>
+
+    </head>
+    <body id="page-top">
+        <div id="wrapper">
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-2"></div>
+                            <div class="col-xl-4 col-lg-4">
+                                <a href="{% url 'turbojet' %}">
+                                    <div class="card shadow mb-4 mt-4 plots">
+                                        <div class="cc">
+                                            <img src="{% static 'turbojet.png' %}" style="width: fit-content; margin: auto">
+                                            <br><br>
+                                            <h4>TURBOJET</h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-4 col-lg-4">
+                                <a href="{% url 'turbofan' %}">
+                                    <div class="card shadow mb-4 mt-4 plots">
+                                        <div class="cc">
+                                            <img src="{% static 'turbofan.png' %}" style="width: fit-content; margin: auto">
+                                            <br><br>
+                                            <h4>TURBOFAN</h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+        <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+    </body>
+</html>
