@@ -20,6 +20,9 @@
             #wrapper {
                 min-height: 100vh;
             }
+            .plots {
+                display: none;
+            }
         </style>
 
     </head>
@@ -47,6 +50,12 @@
                                         <label for="Ma" class="col-sm-7 nav-link iboxl">M<sub>a</sub></label>
                                         <div class="col-sm-4 ibox">
                                             <input type="text" class="form-control" id="Ma" name="Ma" value="0.75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row nav-item">
+                                        <label for="delH_CpTa" class="col-sm-7 nav-link iboxl">&Delta;H/C<sub>p</sub>T<sub>a</sub></label>
+                                        <div class="col-sm-4 ibox">
+                                            <input type="text" class="form-control" id="delH_CpTa" name="delH_CpTa" value="150">
                                         </div>
                                     </div>
                                     <div class="form-group row nav-item">
@@ -92,12 +101,12 @@
                                 </form>
                             </div>
                             <div class="col-xl-5 col-lg-5">
-                                <div class="card shadow mb-4 mt-4">
+                                <div class="card shadow mb-4 mt-4 plots">
                                     <div id="force"></div>
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-5">
-                                <div class="card shadow mb-4 mt-4">
+                                <div class="card shadow mb-4 mt-4 plots">
                                     <div id="tsfc"></div>
                                 </div>
                             </div>
@@ -166,6 +175,7 @@
                         processData: false,
                         contentType: false,
                         success: function(data) {
+                            $('.plots').css("display", "block");
                             plotter(data);
                         }
                     } );

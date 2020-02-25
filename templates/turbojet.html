@@ -20,6 +20,10 @@
             #wrapper {
                 min-height: 100vh;
             }
+
+            .plots {
+                display: none;
+            }
         </style>
 
     </head>
@@ -92,10 +96,10 @@
                                 </form>
                             </div>
                             <div class="col-xl-10 col-lg-10">
-                                <div class="card shadow mb-4 mt-4">
+                                <div class="card shadow mb-4 mt-4 plots">
                                     <div id="force"></div>
                                 </div>
-                                <div class="card shadow mb-4 mt-4">
+                                <div class="card shadow mb-4 mt-4 plots">
                                     <div id="tsfc"></div>
                                 </div>
                             </div>
@@ -143,6 +147,7 @@
                         processData: false,
                         contentType: false,
                         success: function(data) {
+                            $('.plots').css("display", "block");
                             plotter(data);
                         }
                     } );
