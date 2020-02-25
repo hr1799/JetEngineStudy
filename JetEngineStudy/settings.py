@@ -26,7 +26,7 @@ SECRET_KEY = '-7zt$ccx9a--n***$qx$)upa)z%hhi*5jurcw4ed877a#zb^8@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'jet-engine-study.herokuapp.com']
 
 
 # Application definition
