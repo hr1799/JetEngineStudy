@@ -52,8 +52,8 @@ def turbofan_solve(request):
     pi_c_max = float(request.POST.get('pi_c_max', 30))
     pi_f_min = float(request.POST.get('pi_f_min', 1))
     pi_f_max = float(request.POST.get('pi_f_max', 4))
-    steps_c = (pi_c_max-pi_c_min)/100
-    steps_f = (pi_f_max-pi_f_min)/100
+    steps_c = (pi_c_max-pi_c_min)/1000
+    steps_f = (pi_f_max-pi_f_min)/1000
     _pi_c_min = int(pi_c_min / steps_c)
     _pi_c_max = int(pi_c_max / steps_c) + 1
     _pi_f_min = int(pi_f_min / steps_f)
