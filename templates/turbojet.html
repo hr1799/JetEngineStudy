@@ -46,20 +46,20 @@
                                         </p>
                                     </div>
                                     <div class="form-group row nav-item">
-                                        <label for="Ma" class="col-sm-7 nav-link iboxl">M<sub>a</sub></label>
-                                        <div class="col-sm-4 ibox">
+                                        <label for="Ma" class="col-sm-6 nav-link iboxl">M<sub>a</sub></label>
+                                        <div class="col-sm-5 ibox">
                                             <input type="text" class="form-control" id="Ma" name="Ma" value="0.75">
                                         </div>
                                     </div>
                                     <div class="form-group row nav-item">
-                                        <label for="delH_CpTa" class="col-sm-7 nav-link iboxl">&Delta;H/C<sub>p</sub>T<sub>a</sub></label>
-                                        <div class="col-sm-4 ibox">
+                                        <label for="delH_CpTa" class="col-sm-6 nav-link iboxl">&Delta;H/C<sub>p</sub>T<sub>a</sub></label>
+                                        <div class="col-sm-5 ibox">
                                             <input type="text" class="form-control" id="delH_CpTa" name="delH_CpTa" value="150">
                                         </div>
                                     </div>
                                     <div class="form-group row nav-item">
-                                        <label for="Tt4_Ta" class="col-sm-7 nav-link iboxl">T<sub>t4</sub>/T<sub>a</sub></label>
-                                        <div class="col-sm-4 ibox">
+                                        <label for="Tt4_Ta" class="col-sm-6 nav-link iboxl">T<sub>t4</sub>/T<sub>a</sub></label>
+                                        <div class="col-sm-5 ibox">
                                             <input type="text" class="form-control" id="Tt4_Ta" name="Tt4_Ta" value="6">
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@
                                         <div class="col-sm-3 ibox">
                                             <input type="text" class="form-control" id="pi_c_min" name="pi_c_min" value="5">
                                         </div>
-                                        <label class="col-sm-5 nav-link iboxl" style="text-align: center">  &le; &nbsp;&nbsp;&nbsp; &pi;<sub>c</sub> &nbsp;&nbsp;&nbsp; &le;</label>
+                                        <label class="col-sm-5 nav-link iboxl" style="text-align: center">  &le; &pi;<sub>c</sub> &le;</label>
                                         <div class="col-sm-3 ibox">
                                             <input type="text" class="form-control" id="pi_c_max" name="pi_c_max" value="25">
                                         </div>
@@ -136,7 +136,7 @@
                     yaxis: {
                         title: 'F/ma'
                     },
-                    height: 400,
+                    height: 350,
                 };
 
                 Plotly.newPlot('force', data_f, layout_f);
@@ -155,7 +155,7 @@
                     yaxis: {
                         title: 'TSFCa'
                     },
-                    height: 400
+                    height: 350
                 };
 
                 Plotly.newPlot('tsfc', data_t, layout_t);
