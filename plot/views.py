@@ -74,8 +74,8 @@ def turbofan_solve(request):
                 TSFC = ((Tt4_Ta - Tta_Ta * tau_c) / (delH_CpTa)) / F_ma
             except:
                 # print(pi_c, pi_f)
-                F_ma = None
-                TSFC = None
+                F_ma = 0
+                TSFC = 0
             f_row.append(F_ma)
             t_row.append(TSFC)
         plot_f.append(f_row)
